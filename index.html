@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protected Page</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Enter Passcode</h1>
+    <input type="password" id="passcode" placeholder="Enter passcode">
+    <button onclick="checkPasscode()">Submit</button>
+
+    <script>
+        const correctPasscode = "12112";
+
+        function checkPasscode() {
+            const enteredPasscode = document.getElementById("passcode").value;
+            if (enteredPasscode === correctPasscode) {
+                window.location.href = "https://github.com/hydrasearch/hosting/raw/refs/heads/main/hydraproxy.zip";
+            } else {
+                alert("Incorrect passcode. Try again.");
+            }
+        }
+
+        // Disable inspect element and right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
